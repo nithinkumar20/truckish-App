@@ -1,0 +1,23 @@
+     <div class="card  box-shadow color1">
+          <div class="card-body">
+             <div class="text-center row">
+               <div class="col-lg-6 ">
+                <img src="{{ stadium.img }}" alt="{{stadium.name}}" class="img-thumbnail"style="width:100%;height:100%">
+               </div>
+               <div class="col-lg-6">
+                  <div class="card-header">
+                      <a href="" routerLink="stadiumdetails">
+                        <h4 class="my-0 font-weight-normal" (click)="detailsDisp(stadium)">{{ stadium.name  }}</h4>
+                      </a> 
+                    </div>
+                    <br>
+                    <h5 class="card-text"> {{ stadium.city  }}</h5>
+                    <br><br>
+                  <p class="card-text">{{(stadium.details  | slice:0:25)+"..."}}</p>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <br>
+      
+      

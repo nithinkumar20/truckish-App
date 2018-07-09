@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header text-center">
+    <h4 class="card-text">Weather Report</h4>
+  </div>
+  <div class="card-body weather text-center">
+    <h5 class="card-text">City : {{weather.name}}</h5>
+    <h1 class="card-title pricing-card-title"> {{((weather.main.temp-271)|number)}} c</h1>
+    <h5 class="card-text">Wind : {{weather.wind.speed}} miles/hour</h5>
+    <h5 class="card-text">Humidity : {{weather.main.humidity}} %</h5>
+    <h5 class="card-text">pressure : {{weather.main.pressure}} hPa</h5>
+    <h5 class="card-text">weather : {{weather.weather[0].description}}</h5>
+    <h5 class="card-text">clouds : {{weather.clouds.all}} %</h5>
+    <p class="card-text"> Maximum Temprature : {{((weather.main.temp_max-271)|number)}} c</p>
+    <p class="card-text"> Minimum Temprature : {{((weather.main.temp_min-271)|number)}} c</p>
+
+  </div>
+</div>
