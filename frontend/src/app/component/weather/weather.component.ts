@@ -7,7 +7,7 @@ import { StadiumService } from '../../services/stadium.service';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  city='';
+  city='Bengaluru';
   weather:any;
 
   constructor(public weatherService:StadiumService) { }
@@ -19,7 +19,6 @@ export class WeatherComponent implements OnInit {
     //retreiving of weather info
     this.weatherService.getWeather(this.city).subscribe(resp=>{
     this.weather=resp;
-    console.log(this.weather);
     });
 
   }

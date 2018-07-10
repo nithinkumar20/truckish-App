@@ -10,12 +10,14 @@ import { StadiumService } from '../../services/stadium.service';
 
 export class StadiumListComponent implements OnInit {
   stadiums : Stadium[];
+  stadiums1 : Stadium[];
 
   constructor(public stadiumService:StadiumService) { }
 
   ngOnInit() {
-    
- this.stadiums = this.stadiumService.getStadium();
+ this.stadiums = this.stadiumService.getIntialStad(); 
+ this.stadiums1 = this.stadiumService.getStadium();
+ 
   }
 
 }

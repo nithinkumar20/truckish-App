@@ -14,8 +14,8 @@ export class StadiumDetailsComponent implements OnInit {
   constructor(public stadiumService:StadiumService ) {}
 
   ngOnInit() {
+    //getting Selected stadium value from stadium component to display details
     this.stad = this.stadiumService.std1;
-    console.log(this.stad);
   }
 
 }

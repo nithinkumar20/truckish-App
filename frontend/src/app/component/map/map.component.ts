@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     //fetch the selected city anme
     this.city=this.mapService.std1.city;
-    console.log(this.city);
+    
 
     //retreiving of latitude ang langitude
     this.mapService.getWeather(this.city).subscribe(resp=>{

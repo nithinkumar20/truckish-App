@@ -17,12 +17,8 @@ export class StadiumComponent implements OnInit {
   ngOnInit() {
   }
 
+  //stadium details fetched from Storage
   detailsDisp(stadium:Stadium){
-    console.log(stadium);
     this.stadiumService.detailsDisp(this.stadium);
   }  
-
-  
-  
-
 }

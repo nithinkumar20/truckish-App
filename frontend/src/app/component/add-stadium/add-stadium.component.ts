@@ -1,5 +1,6 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { Stadium } from '../../models/stadium';
+import { StadiumService } from '../../services/stadium.service';
 
 @Component({
   selector: 'app-add-stadium',
@@ -7,21 +8,23 @@ import { Stadium } from '../../models/stadium';
   styleUrls: ['./add-stadium.component.css']
 })
 export class AddStadiumComponent implements OnInit {
-  name:string;
-  city:string;
-  capacity:number;
-  country:string;
-  homeTeam:string;
-  details:string;
-  img:string;
+  stad:Stadium = {
+    name:'',
+  city:'',
+  capacity:0,
+  country:'',
+  homeTeam:'',
+  details:'',
+  img:''
+  }
 
-  constructor() { }
+  constructor(public stadiumService:StadiumService) { }
 
   ngOnInit() {
   }
 
   addStadium(stad:Stadium){
-    console.log(stad);
+    this.stadiumService.addStadium(stad);
   }
 
 }

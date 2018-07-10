@@ -3,6 +3,106 @@
   <br>
   <br>
   
+ <div class="card">
+   <div class="card-header text-center">
+     <strong class="card-text">Add Stadium Information</strong>
+   </div>
+   <div class="card-body">
+     <form novalidate #userform="ngForm"  (ngSubmit)="addStadium(stad) ">
+       <div class="form-group">
+         <label for="name">Stadium Name</label>
+         <input type="text" 
+         class="form-control" 
+         [(ngModel)]="stad.name" 
+         #Name="ngModel" name="name"
+          required >
+         <div *ngIf="Name.touched && !Name.valid " class="alert alert-danger">
+         Enter Name of the stadium. minimun 6 letters</div>
+         <br class="mb-3">
+
+          <div class="row">
+            <div class="col-lg-6 col-sm-12">
+              <label for="city">City</label>
+              <input type="text" 
+              class="form-control" 
+              [(ngModel)]="stad.city" 
+              #City="ngModel" 
+              name="city" required >
+              <div *ngIf="!City.valid  && City.touched" class="alert alert-danger">
+              Enter Name of the city. </div>
+              <br class="mb-3">
  
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <label for="country">Country</label>
+              <input type="text" 
+              class="form-control" 
+              [(ngModel)]="stad.country" 
+              #Country="ngModel" name="country" 
+              required>
+              <div *ngIf="!Country.valid  && Name.touched " class="alert alert-danger">
+              Enter Name of the Country.</div>
+              <br class="mb-3">
+ 
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <label for="capacity">Capacity</label>
+                <input type="text" 
+                class="form-control" 
+                [(ngModel)]="stad.capacity" 
+                #Capacity="ngModel" 
+                name="capacity" required >
+                <div *ngIf="!Capacity.valid   && Capacity.touched" class="alert alert-danger">
+                Enter the capacity of the stadium. </div>
+                  <br class="mb-3">
+
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <label for="homeTeam">Home Team</label>
+                <input type="text" 
+                class="form-control" 
+                [(ngModel)]="stad.homeTeam" 
+                #HomeTeam="ngModel" 
+                name="homeTeam" required >
+                <div *ngIf="!HomeTeam.valid  && HomeTeam.touched " class="alert alert-danger">
+                Enter Home team name.</div>
+                  <br class="mb-3">
+
+              </div>
+            </div>
+      
+            <label for="deatails">Stadium Description</label>
+            <textarea type="text" 
+            class="form-control" 
+            [(ngModel)]="stad.details" 
+            #Description="ngModel" 
+            name="details" required maxlenght='300'></textarea>
+            <div *ngIf="!Description.valid  && Description.touched" class="alert alert-danger">
+            Enter stadium Description.</div>
+            <div *ngIf="Description.error?.maxlength && Description.touched" class="alert alert-danger">
+                Maximum 500 characters allowed.</div>
+            <br class="mb-3">
+
+
+            <label for="img">Image URL</label>
+            <input type="text" 
+            class="form-control" 
+            [(ngModel)]="stad.img" 
+            #URL="ngModel" name="img" 
+            required >
+            <div *ngIf="!URL.valid && URL.touched" class="alert alert-danger">
+            Enter valid URL.</div>
+            <br class="mb-3">
+
+   
+
+         <input type="submit" value="submit" [disabled]='userform.invalid' class="btn btn-block btn-primary">
+       </div>
+     </form>
+   </div>
+ </div>
 
 </div>

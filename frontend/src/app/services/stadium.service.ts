@@ -10,12 +10,14 @@ import { map } from 'rxjs/operators';
 export class StadiumService {
 //stadium variable
   stadiums:Stadium[];
+  stadiums1:Stadium[];
   std1:Stadium;
+  stad:Stadium;
   
 
   constructor(public http:Http) { 
   
-    this.stadiums = [
+    this.stadiums1= [
       {
         name:"Rungrado 1st of May Stadium",
         city:"Pyongyang",
@@ -53,6 +55,7 @@ export class StadiumService {
         img:"http://pbs.twimg.com/media/BmhsXuGCMAAVOQv.jpg"
       },
       ]
+      
   }
   
   //get the weather info of the selected city
@@ -61,16 +64,56 @@ export class StadiumService {
     .pipe(map(res => res.json()));
   }
 
-//get the stadium detILS
+  //fetching selected stadium from stadium component or list
+  detailsDisp(stadium){
+    this.std1=stadium;
+    return this.std1;
+  }
+  //get the stadium detILS
   getStadium(){
+    //get stadium list from local storage
+    //if local store is not holding any data
+    if(localStorage.getItem('stadiums') === null){
+      this.stadiums=[];
+    }else
+    //when local storage have a data
+    {
+      this.stadiums= JSON.parse(localStorage.getItem('stadiums'));
+    }
     return this.stadiums;
   }
 
-  //fetching selected stadium
-  detailsDisp(stadium){
-    this.std1=stadium;
-    console.log(this.std1);
-    return this.std1;
+  getIntialStad(){
+    return this.stadiums1;
+  }
+
+  //add new stadium to list
+  addStadium(stad:Stadium){
+    // init local variable
+    let stads;
+    
+    //when local storage have no data
+    if(localStorage.getItem('stadiums') === null){
+      stads=[];
+      //push new stadium
+      stads.unshift(stad);
+      //set new array to LS
+      localStorage.setItem('stadiums',JSON.stringify(stads));
+    }else
+    //when local storage have a data
+    {
+      //get fro LS
+      stads= JSON.parse(localStorage.getItem('stadiums'));
+      //add new stadium to array
+      stads.unshift(stad);
+      //set new array to LS
+      localStorage.setItem('stadiums',JSON.stringify(stads));  
+    }
+  }
+
+  //remove stadium from list
+  removeStadium(){
+
   }
  
 }
