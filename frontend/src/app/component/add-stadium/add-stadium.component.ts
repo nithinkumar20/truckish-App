@@ -1,6 +1,7 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { Stadium } from '../../models/stadium';
 import { StadiumService } from '../../services/stadium.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-stadium',
@@ -18,13 +19,15 @@ export class AddStadiumComponent implements OnInit {
   img:''
   }
 
-  constructor(public stadiumService:StadiumService) { }
+  constructor(public stadiumService:StadiumService,
+  public routrt:Router) { }
 
   ngOnInit() {
   }
 
   addStadium(stad:Stadium){
     this.stadiumService.addStadium(stad);
+    this.routrt.navigate(['/']);
   }
 
 }
